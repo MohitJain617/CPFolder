@@ -1,10 +1,8 @@
 const int maxn = 2e5 + 5;
 vecl a(maxn);
 vecl t[4*maxn];
- 
 void merge(vecl& temp1, vecl& temp2, vecl& final){
     int i = 0, j = 0;
- 
     while(i < sz(temp1) && j < sz(temp2)){
         if(temp1[i] <= temp2[j]) {
             final.pb(temp1[i]);
@@ -23,17 +21,14 @@ void merge(vecl& temp1, vecl& temp2, vecl& final){
         j++;
     }
 }
-
 void build(int ind, int tl, int tr){
     if(tl == tr){
         t[ind].pb(a[tl]);
         return;
     }
- 
     int tm = (tl + tr) / 2;
     build(2 * ind, tl, tm);
     build(2 * ind + 1, tm + 1, tr);
- 
     merge(t[2 * ind], t[2 * ind + 1], t[ind]);
 }
 
