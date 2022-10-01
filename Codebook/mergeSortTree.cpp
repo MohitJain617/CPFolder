@@ -31,7 +31,6 @@ void build(int ind, int tl, int tr){
     build(2 * ind + 1, tm + 1, tr);
     merge(t[2 * ind], t[2 * ind + 1], t[ind]);
 }
-
 int query(int ind, int tl, int tr, int l, int r, int valuetoCompare){    // query for elements strictly greater than k
     if(l > r){
         return 0;
