@@ -8,13 +8,11 @@ struct Node {
 inline int size(Node *treap) {
     return treap ? treap->size : 0;
 }
- 
 void split(Node *treap, Node *&left, Node *&right, int val) {
     if (!treap) {
         left = right = NULL;
         return;
     }
- 
     if (size(treap->left) < val) {
         split(treap->right, treap->right, right, val - size(treap->left) - 1);
         left = treap;
@@ -24,7 +22,6 @@ void split(Node *treap, Node *&left, Node *&right, int val) {
     }
     treap->size = 1 + size(treap->left) + size(treap->right);
 }
- 
 void merge(Node *&treap, Node *left, Node *right) {
     if (left == NULL) {
         treap = right;
@@ -44,27 +41,16 @@ void merge(Node *&treap, Node *left, Node *right) {
     }
     treap->size = 1 + size(treap->left) + size(treap->right);
 }
- 
 ostream& operator<<(ostream &os, Node *n) {
     if (!n) return os;
-    os << n->left;
-    os << n->val;
-    os << n->right;
+    os << n->left; os << n->val; os << n->right;
     return os;
 }
- 
-void solve() {  
- 
-    int n, q;
-    string s;
-    cin >> n >> q;
-    cin >> s;
-    for(auto c: s) {
-        merge(root, root, new Node(c));
-    }
+void solve() {  // USAGE:
+    // get integer n, q, and s
+    for(auto c: s) merge(root, root, new Node(c));
     while(q--) {
-        int l, r;
-        cin >> l >> r;
+        int l, r; cin >> l >> r;
         Node *a, *b;
         split(root, a, b, l - 1);
         Node *c, *d;

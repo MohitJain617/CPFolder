@@ -5,28 +5,22 @@ struct Node {
     int toinvert;
     Node(char c) : val(c), weight(rand()), size(1), left(NULL), right(NULL), toinvert(0) {}
 } *root;
- 
 inline int size(Node *treap) {
     return treap ? treap->size : 0;
 }
- 
 void push(Node *treap) {
     if(treap == NULL) return;
     if(treap->toinvert == 0) return;
- 
     Node *temp = treap->left;
     treap->left = treap->right;
     treap->right = temp;
     treap->toinvert = 0;
- 
     if(treap->left != NULL) treap->left->toinvert ^= 1;
     if(treap->right != NULL) treap->right->toinvert ^= 1;
 }
- 
 void split(Node *treap, Node *&left, Node *&right, int val) {
     if (!treap) {
-        left = right = NULL;
-        return;
+        left = right = NULL; return;
     }
     push(treap);
     if (size(treap->left) < val) {
@@ -38,49 +32,24 @@ void split(Node *treap, Node *&left, Node *&right, int val) {
     }
     treap->size = 1 + size(treap->left) + size(treap->right);
 }
- 
 void merge(Node *&treap, Node *left, Node *right) {
-    if (left == NULL) {
-        treap = right;
-        return;
-    }
-    if (right == NULL) {
-        treap = left;
-        return;
-    }
-    push(left);
-    push(right);
+    if (left == NULL) 
+        treap = right; return;
+    if (right == NULL) 
+        treap = left; return;
+    push(left); push(right);
     if (left->weight < right->weight) {
-        merge(left->right, left->right, right);
-        treap = left;
+        merge(left->right, left->right, right); treap = left;
     } else {
-        merge(right->left, left, right->left);
-        treap = right;
+        merge(right->left, left, right->left); treap = right;
     }
     treap->size = 1 + size(treap->left) + size(treap->right);
 }
- 
-ostream& operator<<(ostream &os, Node *n) {
-    if (!n) return os;
-    push(n);
-    os << n->left;
-    os << n->val;
-    os << n->right;
-    return os;
-}
- 
-void solve() {  
- 
-    int n, q;
-    string s;
-    cin >> n >> q;
-    cin >> s;
-    for(auto c: s) {
-        merge(root, root, new Node(c));
-    }
+void solve() { //USAGE: 
+    //get integers n,q and string s
+    for(auto c: s) merge(root, root, new Node(c));
     while(q--) {
-        int l, r;
-        cin >> l >> r;
+        int l, r; cin >> l >> r;
         Node *a, *b;
         split(root, a, b, l - 1);
         Node *c, *d;

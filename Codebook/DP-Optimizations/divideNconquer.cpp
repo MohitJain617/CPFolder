@@ -2,6 +2,7 @@
 //and optk[i][j] <= optk[i][j+1]
 //optk is optimial k that gives you answer.
 // compute dp_cur[l], ... dp_cur[r] (inclusive)
+// C(a,c) + C(b,d) <= C(a,d) + C(b,c) for all a<=b<=c<=d
 void compute(int l, int r, int optl, int optr) {
     if (l > r)
         return;
@@ -19,4 +20,4 @@ void compute(int l, int r, int optl, int optr) {
     compute(l, mid - 1, optl, opt);
     compute(mid + 1, r, opt, optr);
 }
-notebook-generator ./ --author "CatsOnTrees" --initials UTP --size 11 --columns 3 --paper a4paper
+// notebook-generator ./ --author "CatsOnTrees" --initials UTP --size 11 --columns 3 --paper a4paper
