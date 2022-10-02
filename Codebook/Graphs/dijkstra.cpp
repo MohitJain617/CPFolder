@@ -6,7 +6,7 @@ void dijkstra(vvpll& graph, ll start){
 	vis.assign(n,false);
 	dist.assign(n,1e18);
 	//priority queue stores distance , current
-	priority_queue<pair<ll,ll>,vpll,greater<pair<ll,ll>>> peq;
+	priority_queue<pair<ll,ll>, vpll, greater<pair<ll,ll>>> peq;
 	dist[start] = 0;
 	vis[start] = 0;
 	peq.push(MP(0,start));
@@ -22,9 +22,7 @@ void dijkstra(vvpll& graph, ll start){
 			ll newDist = currdist+cpx.S;
 			//relaxation
 			if(dist[cpx.F] > newDist){
-				dist[cpx.F] = newDist;
-				peq.push(MP(newDist, cpx.F));
+			dist[cpx.F] = newDist;
+			peq.push(MP(newDist, cpx.F));
 			}
-		}
-	}
-}
+		}}}

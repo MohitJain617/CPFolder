@@ -6,8 +6,7 @@ int gcd(int a, int b, int& x, int& y) {
         tie(x, x1) = make_tuple(x1, x - q * x1);
         tie(y, y1) = make_tuple(y1, y - q * y1);
         tie(a1, b1) = make_tuple(b1, a1 - q * b1);
-    }
-    return a1;
+    } return a1;
 }
 int modinv(int a, int m){
 	int x, y;

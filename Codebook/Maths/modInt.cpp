@@ -11,7 +11,6 @@ struct mi {
         return !(a == b); }
     friend bool operator<(const mi& a, const mi& b) { 
         return a.v < b.v; }
-   
     mi& operator+=(const mi& m) { 
         if ((v += m.v) >= mod) v -= mod; 
         return *this; }

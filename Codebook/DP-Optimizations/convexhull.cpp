@@ -20,7 +20,6 @@ struct dynamic_hull : public multiset<line> { // will maintain upper hull for ma
 		}
 		auto x = prev(y);
 		if (z == end()) return y->m == x->m && y->b <= x->b;
-
 		/* compare two lines by slope, make sure denominator is not 0 */
 		ll v1 = (x->b - y->b);
 		if (y->m == x->m) v1 = x->b > y->b ? inf : -inf;

@@ -18,7 +18,8 @@ int markSizeOfUnvisited(int v, int p = -1){
 	sz[v] = 1;
 	for(int nbr: tree[v]){
 		if(!vis[nbr] && nbr != p){
-			sz[v] += markSizeOfUnvisited(nbr, v);
+		 sz[v] += 
+		 markSizeOfUnvisited(nbr, v);
 		}
 	}
 	return sz[v];
@@ -26,7 +27,7 @@ int markSizeOfUnvisited(int v, int p = -1){
 int findCentroid(int v, int p, int num){
 	for(int nbr: tree[v]){
 		if(!vis[nbr] && nbr != p && sz[nbr] > num/2){
-			return findCentroid(nbr, v, num);
+		 return findCentroid(nbr, v, num);
 		}
 	}
 	return v;

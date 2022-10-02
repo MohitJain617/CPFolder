@@ -4,8 +4,7 @@ id[x] < id[¬x] => x = false
 Both variables must have the same value is equivalent to:
 (¬x ∨ y)∧(x ∨ ¬y).
 */
-struct two_sat {
-    int n;
+struct two_sat { int n;
     vector<vector<int>> g, gr; // gr is the reversed graph
     vector<int> comp, topological_order, answer; // comp[v]: ID of the SCC containing node v
     vector<bool> vis;
