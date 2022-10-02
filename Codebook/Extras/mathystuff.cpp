@@ -1,3 +1,4 @@
+/*
 Burnside lemma: 
 ---------------
 (1/n)*sum(c[0]...c[n-1])
@@ -17,3 +18,4 @@ Catalan Number
 2n_C_n - 2n_C_(n+1) 
 C[n] = no. of binary trees of n nodes (l and r diff)
 C[n] = no of trees of n+1 nodes (l and r same)
+*/
