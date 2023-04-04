@@ -2,6 +2,7 @@ int normalize(int x,int m) {
     x %= m; if(x<0) x+= m; return x;
 }
 // add gcd(a,b,x,y) extended
+// x = a[0] mod n[0], a[1] mod n[1] ... works for non coprime n.
 pair<int, int> CRT(vector<int>& a, vector<int>& n)
 {
     int len = a.size();
