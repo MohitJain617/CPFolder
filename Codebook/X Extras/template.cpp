@@ -1,3 +1,5 @@
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
 #define MOD2 1000000009 #define MOD3 1000000021
 #define MOD4 1000000033 #define MOD5 1000000087
