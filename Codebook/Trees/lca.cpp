@@ -1,4 +1,5 @@
 #define sz(x) (int)(x).size()
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
 template<class T>
 struct RMQ {
 	vector<vector<T>> jmp;
